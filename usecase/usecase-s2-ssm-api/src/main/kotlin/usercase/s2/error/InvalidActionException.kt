@@ -1,0 +1,8 @@
+package usercase.s2.error
+
+import org.springframework.http.HttpStatus
+import org.springframework.web.server.ResponseStatusException
+
+class InvalidActionException(
+	actionName: String
+): ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Invalid action $actionName.")

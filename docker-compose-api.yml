@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  lrtzc-trace-s2-cassandra-api:
+    container_name: lrtzc-trace-s2-cassandra-api
+    image: smartbcity/lrtzc-trace-s2-cassandra-api:experimental
+    environment:
+      - cassandra_contact-points=lrtzc-cassandra
+    ports:
+    - "8001:8001"
+    networks:
+      - bclannet-it
+
+  lrtzc-trace-s2-ssm-api:
+    container_name: lrtzc-trace-s2-ssm-api
+    image: smartbcity/lrtzc-trace-s2-ssm-api:experimental
+    environment:
+      - ssm_couchdb_url=http://couchdb:5984
+      - ssm_chaincode_url=http://coop-rest-bclan-network-it:9090
+    ports:
+      - "8002:8002"
+    networks:
+      - bclannet-it
+
+  lrtzc-usecase-s2-ssm-api:
+    container_name: lrtzc-usecase-s2-ssm-api
+    image: smartbcity/lrtzc-usecase-s2-ssm-api:experimental
+    environment:
+      - ssm_couchdb_url=http://couchdb:5984
+      - ssm_chaincode_url=http://coop-rest-bclan-network-it:9090
+    ports:
+      - "8003:8003"
+    networks:
+      - bclannet-it
+
+networks:
+  bclannet-it:
+    name: bclannet-it

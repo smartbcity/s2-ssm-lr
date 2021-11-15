@@ -1,0 +1,55 @@
+### Trace Casandra
+POST http://localhost:8001/traces
+Content-Type: application/json
+
+{
+  "id": "id1",
+  "payload":{
+     "key1": "value1",
+     "key2": "value2"
+  }
+}
+
+### Trace Ssm
+GET http://localhost:8001/traces/id1
+
+
+
+###
+POST http://localhost:8002/
+Content-Type: application/json
+
+{
+  "id": "id6",
+  "payload":{
+     "key1": "value1",
+     "key2": "value2"
+  }
+}
+
+###
+GET http://localhost:8002/id6
+
+
+### Blockchain
+
+### Get List Admin
+GET http://localhost:9090/?args=admin&cmd=query&fcn=list
+
+### Get List User
+GET http://localhost:9090/?args=user&cmd=query&fcn=list
+
+### Get List Ssm
+GET http://localhost:9090/?args=ssm&cmd=query&fcn=list
+
+### Get Ssm by name
+GET http://localhost:9090/?cmd=query&fcn=ssm&args=S2Trace
+
+### Get Session by name
+GET http://localhost:9090/?cmd=query&fcn=session&args=S2Trace
+
+### Get Session List
+GET http://localhost:9090/?args=session&cmd=query&fcn=list
+
+### Get Session Log
+GET http://localhost:9090/?args=id3&cmd=query&fcn=log

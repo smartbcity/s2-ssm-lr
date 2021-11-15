@@ -1,0 +1,23 @@
+ssm:
+  signer:
+    user:
+      name: ssm-admin
+      key: user/ssm-admin
+    admin:
+      name: ssm-admin
+      key: user/ssm-admin
+  couchdb:
+    url: http://localhost:5984
+    username: couchdb
+    password: couchdb
+    serviceName: s2-sample-did
+  chaincode:
+    url: http://localhost:9090
+
+
+server:
+  port: 8002
+  servlet:
+    context-path: /trace
+
+
